@@ -7,6 +7,8 @@ import Thumbnails from "./ThemeSelector";
 function App() {
   function handleThumbnailClick(event) {
     const selectedImage = event.target.id;
+    const { fetchImage, loading } = ImageFetcher;
+    fetchImage(selectedImage);
     console.log(selectedImage);
   }
 
