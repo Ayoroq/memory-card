@@ -1,7 +1,7 @@
-import catImage from "../assets/cat.jpg";
-import dogImage from "../assets/dog.jpg";
-import owlImage from "../assets/owl.jpg";
-import deerImage from "../assets/deer.jpg";
+import catImage from "../assets/thumbnail-images/cat.jpg";
+import dogImage from "../assets/thumbnail-images/dog.jpg";
+import owlImage from "../assets/thumbnail-images/owl.jpg";
+import deerImage from "../assets/thumbnail-images/deer.jpg";
 
 const images = {
   cat: catImage,
@@ -10,19 +10,20 @@ const images = {
   deer: deerImage,
 };
 
-export default function Thumbnails({handleThumbnailClick}) {
+export default function Thumbnails({ handleThumbnailClick }) {
   return (
-    <div className="thumbnail-container">
+    <ul className="thumbnail-container">
       {Object.keys(images).map((key) => (
-        <img
-          key={key}
-          src={images[key]}
-          alt={key}
-          className="thumbnail"
-          id={key}
-          onClick={handleThumbnailClick}
-        />
+        <li key={key} className="thumbnail">
+          <img
+            src={images[key]}
+            alt={key}
+            className="thumbnail-image"
+            id={key}
+            onClick={handleThumbnailClick}
+          />
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }
