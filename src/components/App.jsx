@@ -55,7 +55,8 @@ function App() {
     setAlreadyClicked(false);
     setClickedImagesId([]);
     setScore(0);
-    setHighScore(0);
+    setSelectedImage(null);
+    setShuffledImages([]);
     dialogRef.current.close();
   }
 
@@ -82,7 +83,7 @@ function App() {
   return (
     <div className="App-container">
       <ScoreDisplay score={score} highScore={highScore} />
-      <Thumbnails handleThumbnailClick={handleThumbnailClick} />
+      {!selectedImage && <Thumbnails handleThumbnailClick={handleThumbnailClick} />}
       <DisplayImage
         shuffledImages={shuffledImages}
         loading={loading}
