@@ -44,6 +44,21 @@ function App() {
     }
   }, [alreadyClicked, score]);
 
+  function restart() {
+    setAlreadyClicked(false);
+    setClickedImagesId([]);
+    setScore(0);
+    dialogRef.current.close();
+  }
+
+  function endGame() {
+    setAlreadyClicked(false);
+    setClickedImagesId([]);
+    setScore(0);
+    setHighScore(0);
+    dialogRef.current.close();
+  }
+
   function handleThumbnailClick(event) {
     const selectedThumbnailImage = event.target.id;
     setSelectedImage(selectedThumbnailImage);
@@ -79,6 +94,8 @@ function App() {
           alreadyClicked={alreadyClicked}
           score={score}
           ref={dialogRef}
+          restart={restart}
+          endGame={endGame}
         />
       )}
     </div>
