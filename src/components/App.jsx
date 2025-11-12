@@ -13,7 +13,10 @@ function App() {
   const [alreadyClicked, setAlreadyClicked] = useState(false);
   const [shuffledImages, setShuffledImages] = useState([]);
   const [score, setScore] = useState(0);
-  const [highScore, setHighScore] = useState(0);
+  const [highScore, setHighScore] = useState(() => {
+    const stored = localStorage.getItem("highScore");
+    return stored ? parseInt(stored) : 0;
+  });
 
   function shuffleAndSlice(data) {
     const shuffled = [...data];
@@ -29,6 +32,10 @@ function App() {
       setShuffledImages(shuffleAndSlice([...imageData]));
     }
   }, [imageData]);
+
+  useEffect(() => {
+    localStorage.setItem("highScore", highScore.toString());
+  }, [highScore]);
 
   function handleThumbnailClick(event) {
     const selectedThumbnailImage = event.target.id;
