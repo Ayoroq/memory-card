@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 import "./Reset.css";
 import useFetchImage from "./ImageFetcher";
@@ -18,7 +18,7 @@ function App() {
     const stored = localStorage.getItem("highScore");
     return stored ? parseInt(stored) : 0;
   });
-
+  const dialogRef = useRef(null);
   function shuffleAndSlice(data) {
     const shuffled = [...data];
     for (let i = shuffled.length - 1; i > 0; i--) {
@@ -37,6 +37,12 @@ function App() {
   useEffect(() => {
     localStorage.setItem("highScore", highScore.toString());
   }, [highScore]);
+
+  useEffect(() => {
+    if ((alreadyClicked || score === 30) && dialogRef.current) {
+      dialogRef.current.showModal();
+    }
+  }, [alreadyClicked, score]);
 
   function handleThumbnailClick(event) {
     const selectedThumbnailImage = event.target.id;
@@ -68,6 +74,13 @@ function App() {
         alreadyClicked={alreadyClicked}
         onImageClick={handleImageClick}
       />
+      {(alreadyClicked || score === 30) && (
+        <GameStatus
+          alreadyClicked={alreadyClicked}
+          score={score}
+          ref={dialogRef}
+        />
+      )}
     </div>
   );
 }

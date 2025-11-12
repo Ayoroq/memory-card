@@ -1,13 +1,13 @@
 import React from "react";
 export default function DisplayImage({ shuffledImages, loading, alreadyClicked, onImageClick }) {
-  if (alreadyClicked) {
-    return <div>Already clicked</div>;
-  }
   if (loading) {
     return <div>Loading...</div>;
   }
 
   if (!shuffledImages || shuffledImages.length === 0) {
+    return null;
+  }
+  if (alreadyClicked) {
     return null;
   }
 

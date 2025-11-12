@@ -1,8 +1,10 @@
-export default function GameStatus({ alreadyClicked, score }) {
+import React from "react";
+
+const GameStatus = React.forwardRef(({ alreadyClicked, score }, ref) => {
   if (!alreadyClicked && score !== 30) return null;
 
   return (
-    <dialog className="dialog">
+    <dialog ref={ref} className="dialog">
       <p>{alreadyClicked ? "Game Over" : "You Won"}</p>
       <div className="button-container">
         <button className="dialog-button">Play Again</button>
@@ -10,4 +12,6 @@ export default function GameStatus({ alreadyClicked, score }) {
       </div>
     </dialog>
   );
-}
+});
+
+export default GameStatus;
