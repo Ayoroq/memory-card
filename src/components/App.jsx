@@ -30,6 +30,10 @@ function App() {
 
   useEffect(() => {
     if (imageData && imageData.length > 0) {
+      imageData.forEach(image => {
+        const img = new Image();
+        img.src = image.urls.regular;
+      });
       setShuffledImages(shuffleAndSlice([...imageData]));
     }
   }, [imageData]);
