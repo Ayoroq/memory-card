@@ -12,7 +12,7 @@ export default function useFetchImage(query) {
       setLoading(true);
       try {
         const response = await fetch(
-          `https://api.unsplash.com/photos/random?query=${query}&client_id=${API_KEY}&count=20`
+          `https://api.unsplash.com/photos/random?query=${query}&client_id=${API_KEY}&count=5`
         );
         const data = await response.json();
         setImageData(data);

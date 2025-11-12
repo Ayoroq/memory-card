@@ -5,17 +5,17 @@
   text-align: center;
 }
 
-.thumbnail-container{
+.thumbnail-container, .image-container{
   display: flex;
   gap: 1rem;
   padding: 0;
 }
 
-.thumbnail{
+li{
   list-style: none;
 }
 
-.thumbnail-image{
+.thumbnail-image,.image{
   border-radius: 3px;
   cursor: pointer;
 }

@@ -1,20 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import "./Reset.css";
-import ImageFetcher from "./ImageFetcher";
+import useFetchImage from "./ImageFetcher";
 import Thumbnails from "./ThemeSelector";
+import DisplayImage from "./DisplayImage";
 
 function App() {
+  const [selectedImage, setSelectedImage] = useState(null);
+  const { imageData, loading } = useFetchImage(selectedImage);
+  
   function handleThumbnailClick(event) {
-    const selectedImage = event.target.id;
-    const { fetchImage, loading } = ImageFetcher;
-    fetchImage(selectedImage);
-    console.log(selectedImage);
+    const selectedThumnailImage = event.target.id;
+    setSelectedImage(selectedThumnailImage);
   }
 
   return (
     <div className="App-container">
       <Thumbnails handleThumbnailClick={handleThumbnailClick} />
+      <DisplayImage imageData={imageData} loading={loading}/>
     </div>
   );
 }
