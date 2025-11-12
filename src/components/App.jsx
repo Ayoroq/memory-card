@@ -5,6 +5,7 @@ import useFetchImage from "./ImageFetcher";
 import Thumbnails from "./ThemeSelector";
 import DisplayImage from "./DisplayImage";
 import ScoreDisplay from "./Score";
+import GameStatus from "./GameStatus";
 
 function App() {
   const [selectedImage, setSelectedImage] = useState(null);
