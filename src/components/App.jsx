@@ -4,6 +4,7 @@ import "./Reset.css";
 import useFetchImage from "./ImageFetcher";
 import Thumbnails from "./ThemeSelector";
 import DisplayImage from "./DisplayImage";
+import ScoreDisplay from "./Score";
 
 function App() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -11,6 +12,8 @@ function App() {
   const [clickedImagesId, setClickedImagesId] = useState([]);
   const [alreadyClicked, setAlreadyClicked] = useState(false);
   const [shuffledImages, setShuffledImages] = useState([]);
+  const [score, setScore] = useState(0);
+  const [highScore, setHighScore] = useState(0);
 
   function shuffleAndSlice(data) {
     const shuffled = [...data];
@@ -26,7 +29,7 @@ function App() {
       setShuffledImages(shuffleAndSlice([...imageData]));
     }
   }, [imageData]);
-  
+
   function handleThumbnailClick(event) {
     const selectedThumbnailImage = event.target.id;
     setSelectedImage(selectedThumbnailImage);
@@ -36,15 +39,22 @@ function App() {
     const clickedImage = event.target;
     if (clickedImagesId.includes(clickedImage.id)) {
       setAlreadyClicked(true);
+      if (score > highScore) {
+        setHighScore(score);
+      }
+      setScore(0);
+      return;
     }
-    setClickedImagesId(prev => [...prev, clickedImage.id]);
+    setClickedImagesId((prev) => [...prev, clickedImage.id]);
+    setScore((prev) => prev + 1);
     setShuffledImages(shuffleAndSlice([...imageData]));
   }
 
   return (
     <div className="App-container">
+      <ScoreDisplay score={score} highScore={highScore} />
       <Thumbnails handleThumbnailClick={handleThumbnailClick} />
-      <DisplayImage 
+      <DisplayImage
         shuffledImages={shuffledImages}
         loading={loading}
         alreadyClicked={alreadyClicked}
