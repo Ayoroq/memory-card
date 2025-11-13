@@ -6,11 +6,13 @@ import Thumbnails from "./ThemeSelector";
 import DisplayImage from "./DisplayImage";
 import ScoreDisplay from "./Score";
 import GameStatus from "./GameStatus";
+import LandingPage from "./LandingPage";
 
 function App() {
   const [selectedImage, setSelectedImage] = useState(null);
   const { imageData, loading } = useFetchImage(selectedImage);
   const [clickedImagesId, setClickedImagesId] = useState([]);
+  const [gameStarted, setGameStarted] = useState(false);
   const [alreadyClicked, setAlreadyClicked] = useState(false);
   const [shuffledImages, setShuffledImages] = useState([]);
   const [score, setScore] = useState(0);
@@ -30,7 +32,7 @@ function App() {
 
   useEffect(() => {
     if (imageData && imageData.length > 0) {
-      imageData.forEach(image => {
+      imageData.forEach((image) => {
         const img = new Image();
         img.src = image.urls.regular;
       });
@@ -87,8 +89,11 @@ function App() {
 
   return (
     <div className="App-container">
+      {!gameStarted && <LandingPage setGameStarted={setGameStarted} />}
       <ScoreDisplay score={score} highScore={highScore} />
-      {!selectedImage && <Thumbnails handleThumbnailClick={handleThumbnailClick} />}
+      {!selectedImage && (
+        <Thumbnails handleThumbnailClick={handleThumbnailClick} />
+      )}
       <DisplayImage
         shuffledImages={shuffledImages}
         loading={loading}
