@@ -7,6 +7,7 @@ import DisplayImage from "./DisplayImage";
 import ScoreDisplay from "./Score";
 import GameStatus from "./GameStatus";
 import LandingPage from "./LandingPage";
+import LoadingScreen from "./LoadingScreen";
 
 function App() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -20,6 +21,7 @@ function App() {
     const stored = localStorage.getItem("highScore");
     return stored ? parseInt(stored) : 0;
   });
+  const [appLoading, setAppLoading] = useState(true);
   const dialogRef = useRef(null);
   function shuffleAndSlice(data) {
     const shuffled = [...data];
@@ -29,6 +31,13 @@ function App() {
     }
     return shuffled.slice(0, 10);
   }
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setAppLoading(false);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     if (imageData && imageData.length > 0) {
@@ -87,19 +96,31 @@ function App() {
     setShuffledImages(shuffleAndSlice([...imageData]));
   }
 
+  if (appLoading) {
+    return (
+      <div className="App-container">
+        <LoadingScreen />
+      </div>
+    );
+  }
+
   return (
     <div className="App-container">
       {!gameStarted && <LandingPage setGameStarted={setGameStarted} />}
-      <ScoreDisplay score={score} highScore={highScore} />
-      {!selectedImage && (
+      {!selectedImage && gameStarted && (
         <Thumbnails handleThumbnailClick={handleThumbnailClick} />
       )}
-      <DisplayImage
-        shuffledImages={shuffledImages}
-        loading={loading}
-        alreadyClicked={alreadyClicked}
-        onImageClick={handleImageClick}
-      />
+      {selectedImage && (
+        <>
+          <ScoreDisplay score={score} highScore={highScore} />
+          <DisplayImage
+            shuffledImages={shuffledImages}
+            loading={loading}
+            alreadyClicked={alreadyClicked}
+            onImageClick={handleImageClick}
+          />
+        </>
+      )}
       {(alreadyClicked || score === 30) && (
         <GameStatus
           alreadyClicked={alreadyClicked}
