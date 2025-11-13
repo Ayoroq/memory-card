@@ -51,6 +51,7 @@ function App() {
   function restart() {
     setAlreadyClicked(false);
     setClickedImagesId([]);
+    setShuffledImages(shuffleAndSlice([...imageData]));
     setScore(0);
     dialogRef.current.close();
   }
