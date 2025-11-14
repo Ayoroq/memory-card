@@ -33,3 +33,18 @@ li{
   display: flex;
   flex-direction: column;
 }
+
+.name{
+  padding: 2rem;
+  font-size: clamp(5vw,calc(8vw - 3px),115px);
+  font-weight: bolder;
+  line-height: 1;
+}
+
+.idea-image{
+  width: 100%;
+  max-width: clamp(10vw,25vw,240px);
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
