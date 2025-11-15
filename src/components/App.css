@@ -29,22 +29,51 @@ li{
 .landing-page{
   text-align: center;
   flex: 1;
+  gap: 2rem;
   background-color: #D6E2E3;
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
 }
 
 .name{
   padding: 2rem;
-  font-size: clamp(5vw,calc(8vw - 3px),115px);
-  font-weight: bolder;
-  line-height: 1;
+  font-size: clamp(5vw,calc(9vw),115px);
+  font-family: "Faster One", system-ui;
+  font-weight: 700;
 }
 
-.idea-image{
+.button-container{
+  margin-top: 3rem;
+}
+
+.get-started{
+  font-family: "Faster One", system-ui;
+  font-size: clamp(0.75rem, 1.25rem, 2rem);
+  padding: 1rem 2rem;
+  background-color: red;
+  border-radius: 10px;
+  color: white;
+  border: none;
+  box-shadow: 0px 3px 10px rgb(147, 48, 48);
+  cursor: pointer;
+}
+
+.landing-images{
+  display: flex;
+  flex: 1;
+  margin-top: 10rem;
+  justify-content: space-between;
+}
+
+.andy{
   width: 100%;
-  max-width: clamp(10vw,25vw,240px);
+  max-width: 25vw;
   object-fit: contain;
-  display: block;
-  margin: 0 auto;
+}
+
+@media (max-width: 500px){
+  .get-started{
+    padding: 0.5rem 1rem;
+  }
 }
