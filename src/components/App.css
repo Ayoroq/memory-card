@@ -9,6 +9,10 @@
   height: 100%;
 }
 
+li {
+  list-style: none;
+}
+
 .thumbnails-main {
   display: flex;
   flex-direction: column;
@@ -19,8 +23,7 @@
   text-align: center;
 }
 
-.thumbnail-container,
-.image-container {
+.thumbnail-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -28,36 +31,48 @@
   padding: 0;
 }
 
-.image-container {
-  justify-content: center;
-}
-
-li {
-  list-style: none;
-}
-
-.thumbnail-image,
-.image {
+.thumbnail-image{
   border-radius: 3px;
   cursor: pointer;
 }
 
-.thumbnail-image,
-.image {
+.thumbnail-image {
   width: 100%;
   max-width: clamp(100px, 200px, 300px);
   transition: transform 0.3s;
   transform-style: preserve-3d;
 }
 
-.thumbnail-image:hover,
-.image:hover {
+.thumbnail-image:hover {
   transform: translateY(-3px);
   box-shadow: 1px 3px 8px rgb(67, 64, 64);
 }
 
 .thumbnail-image:active {
   transform: translateY(0);
+}
+
+/* The main game images */
+.image-container{
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  justify-content: center;
+  align-content: flex-start;
+}
+
+.image-item{
+  height: 400px;
+  flex-grow: 1;
+}
+
+.image{
+  max-height: 100%;
+  min-width: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  vertical-align: bottom;
 }
 
 /* Loading screen */
@@ -146,9 +161,40 @@ li {
   font-weight: 700;
 }
 
-@media (max-width: 600px){
-  .thumbnail-image,
+/* Portrait screens */
+@media (max-aspect-ratio: 1/1) {
+  .image-item {
+    height: 150px;
+  }
+}
+
+/* Short screens */
+@media (max-height: 480px) {
+  .image-item {
+    height: 200px;
+  }
+}
+
+/* Smaller screens in portrait */
+@media (max-aspect-ratio: 1/1) and (max-width: 480px) {
+  .image-container {
+    flex-direction: row;
+  }
+  
+  .image-item {
+    height: auto;
+    width: 100%;
+  }
+  
   .image {
+    width: 100%;
+    max-height: 300px;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 600px){
+  .thumbnail-image{
     max-width: 150px;
   }
 }
@@ -156,8 +202,7 @@ li {
   .get-started {
     padding: 0.5rem 1rem;
   }
-    .thumbnail-image,
-  .image {
+    .thumbnail-image {
     max-width: 100px;
   }
 }
