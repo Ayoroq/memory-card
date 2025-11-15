@@ -134,7 +134,7 @@ function App() {
         <Thumbnails handleThumbnailClick={handleThumbnailClick} handleMouseMove={rotateImage} handleMouseLeave={cancelRotation}/>
       )}
       {selectedImage && (
-        <>
+        <main className="gameplay">
           <ScoreDisplay score={score} highScore={highScore} />
           <DisplayImage
             shuffledImages={shuffledImages}
@@ -142,7 +142,7 @@ function App() {
             alreadyClicked={alreadyClicked}
             onImageClick={handleImageClick}
           />
-        </>
+        </main>
       )}
       {(alreadyClicked || score === 30) && (
         <GameStatus
