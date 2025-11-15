@@ -9,9 +9,19 @@
   height: 100%;
 }
 
+.thumbnails-main{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
 .thumbnail-container,
 .image-container {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   padding: 0;
 }
@@ -27,6 +37,8 @@ li {
 }
 
 .thumbnail-image{
+  width: 100%;
+  max-width: clamp(100px, 200px,300px);
   transition: transform 0.3s;
   transform-style: preserve-3d;
 }
@@ -42,6 +54,7 @@ li {
 
 /* Landing Page */
 .landing-page {
+  width: 100%;
   text-align: center;
   flex: 1;
   gap: 2rem;
@@ -95,5 +108,8 @@ li {
 @media (max-width: 500px) {
   .get-started {
     padding: 0.5rem 1rem;
+  }
+  .thumbnail-image{
+    max-width: 100px;
   }
 }

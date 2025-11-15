@@ -3,6 +3,7 @@ import dogImage from "../assets/thumbnail-images/dog.jpg";
 import owlImage from "../assets/thumbnail-images/owl.jpg";
 import deerImage from "../assets/thumbnail-images/deer.jpg";
 import carImage from "../assets/thumbnail-images/car.jpg";
+import potImage from "../assets/thumbnail-images/potted-plants.jpg";
 
 const images = {
   cat: catImage,
@@ -10,11 +11,12 @@ const images = {
   owl: owlImage,
   deer: deerImage,
   car: carImage,
+  "potted plants": potImage,
 };
 
 export default function Thumbnails({ handleThumbnailClick, handleMouseMove, handleMouseLeave}) {
   return (
-    <>
+    <main className="thumbnails-main">
     <h2>Choose a theme to start the game</h2>
     <ul className="thumbnail-container">
       {Object.keys(images).map((key) => (
@@ -31,6 +33,6 @@ export default function Thumbnails({ handleThumbnailClick, handleMouseMove, hand
         </li>
       ))}
     </ul>
-    </>
+    </main>
   );
 }
