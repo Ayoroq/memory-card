@@ -52,6 +52,12 @@ li {
   transform: translateY(0);
 }
 
+/* Loading screen */
+.loading-screen{
+  display: flex;
+  flex: 1;
+}
+
 /* Landing Page */
 .landing-page {
   width: 100%;
@@ -66,7 +72,7 @@ li {
 
 .name {
   padding: 2rem;
-  font-size: clamp(5vw, calc(9vw), 115px);
+  font-size: clamp(5vw, calc(12vw), 115px);
   font-family: "Faster One", system-ui;
   font-weight: 700;
 }
