@@ -14,6 +14,8 @@ const images = {
 
 export default function Thumbnails({ handleThumbnailClick, handleMouseMove, handleMouseLeave}) {
   return (
+    <>
+    <h2>Choose a theme to start the game</h2>
     <ul className="thumbnail-container">
       {Object.keys(images).map((key) => (
         <li key={key} className="thumbnail">
@@ -29,5 +31,6 @@ export default function Thumbnails({ handleThumbnailClick, handleMouseMove, hand
         </li>
       ))}
     </ul>
+    </>
   );
 }
