@@ -26,6 +26,20 @@ li {
   cursor: pointer;
 }
 
+.thumbnail-image{
+  transition: transform 0.3s;
+  transform-style: preserve-3d;
+}
+
+.thumbnail-image:hover{
+  transform: translateY(-3px);
+  box-shadow: 1px 3px 8px rgb(67, 64, 64) ;
+}
+
+.thumbnail-image:active{
+  transform: translateY(0);
+}
+
 /* Landing Page */
 .landing-page {
   text-align: center;

@@ -76,6 +76,29 @@ function App() {
     dialogRef.current.close();
   }
 
+  function rotateImage(event){
+    const image = event.target;
+    const rect = image.getBoundingClientRect();
+    // Calculate the position of the mouse relative to the card's top-left corner
+    const x = event.clientX - rect.left; 
+    const y = event.clientY - rect.top; 
+    
+    // Find the center of the card
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    // Calculate the rotation angles based on mouse position
+    const rotateX = ((y - centerY) / centerY) * 20; 
+    const rotateY = ((centerX - x) / centerX) * 20;
+
+    image.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  }
+
+  function cancelRotation(event){
+    const image = event.target;
+    image.style.transform = 'rotate(0deg)';
+  }
+
   function handleThumbnailClick(event) {
     const selectedThumbnailImage = event.target.id;
     setSelectedImage(selectedThumbnailImage);
@@ -108,7 +131,7 @@ function App() {
     <div className="App-container">
       {!gameStarted && <LandingPage setGameStarted={setGameStarted} onClick={() => setGameStarted(true)} />}
       {!selectedImage && gameStarted && (
-        <Thumbnails handleThumbnailClick={handleThumbnailClick} />
+        <Thumbnails handleThumbnailClick={handleThumbnailClick} handleMouseMove={rotateImage} handleMouseLeave={cancelRotation}/>
       )}
       {selectedImage && (
         <>

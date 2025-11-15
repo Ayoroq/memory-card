@@ -12,7 +12,7 @@ const images = {
   car: carImage,
 };
 
-export default function Thumbnails({ handleThumbnailClick }) {
+export default function Thumbnails({ handleThumbnailClick, handleMouseMove, handleMouseLeave}) {
   return (
     <ul className="thumbnail-container">
       {Object.keys(images).map((key) => (
@@ -23,6 +23,8 @@ export default function Thumbnails({ handleThumbnailClick }) {
             className="thumbnail-image"
             id={key}
             onClick={handleThumbnailClick}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
           />
         </li>
       ))}
