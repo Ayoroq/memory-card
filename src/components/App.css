@@ -1,4 +1,4 @@
-.App-container{
+.App-container {
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -9,45 +9,46 @@
   height: 100%;
 }
 
-.thumbnail-container, .image-container{
+.thumbnail-container,
+.image-container {
   display: flex;
   gap: 1rem;
   padding: 0;
 }
 
-li{
+li {
   list-style: none;
 }
 
-.thumbnail-image,.image{
+.thumbnail-image,
+.image {
   border-radius: 3px;
   cursor: pointer;
 }
 
-
 /* Landing Page */
-.landing-page{
+.landing-page {
   text-align: center;
   flex: 1;
   gap: 2rem;
-  background-color: #D6E2E3;
+  background-color: #d6e2e3;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
 }
 
-.name{
+.name {
   padding: 2rem;
-  font-size: clamp(5vw,calc(9vw),115px);
+  font-size: clamp(5vw, calc(9vw), 115px);
   font-family: "Faster One", system-ui;
   font-weight: 700;
 }
 
-.button-container{
+.button-container {
   margin-top: 3rem;
 }
 
-.get-started{
+.get-started {
   font-family: "Faster One", system-ui;
   font-size: clamp(0.75rem, 1.25rem, 2rem);
   padding: 1rem 2rem;
@@ -57,23 +58,28 @@ li{
   border: none;
   box-shadow: 0px 3px 10px rgb(147, 48, 48);
   cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-.landing-images{
+.get-started:hover {
+  transform: translateY(-3px);
+}
+
+.landing-images {
   display: flex;
   flex: 1;
   margin-top: 10rem;
   justify-content: space-between;
 }
 
-.andy{
+.andy {
   width: 100%;
   max-width: 25vw;
   object-fit: contain;
 }
 
-@media (max-width: 500px){
-  .get-started{
+@media (max-width: 500px) {
+  .get-started {
     padding: 0.5rem 1rem;
   }
 }
