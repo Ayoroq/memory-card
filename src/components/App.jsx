@@ -106,7 +106,7 @@ function App() {
 
   return (
     <div className="App-container">
-      {!gameStarted && <LandingPage setGameStarted={setGameStarted} />}
+      {!gameStarted && <LandingPage setGameStarted={setGameStarted} onClick={() => setGameStarted(true)} />}
       {!selectedImage && gameStarted && (
         <Thumbnails handleThumbnailClick={handleThumbnailClick} />
       )}
