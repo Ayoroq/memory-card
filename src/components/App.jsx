@@ -135,8 +135,14 @@ function App() {
     return (
       <div className="App-container">
         <div style={{textAlign: 'center', padding: '2rem'}}>
-          <h2>Error loading images</h2>
-          <p>{error}</p>
+          <h2>Unable to load images</h2>
+          <p>Please check your internet connection and try again.</p>
+          <button 
+            onClick={() => window.location.reload()} 
+            style={{marginTop: '1rem', padding: '0.5rem 1rem', cursor: 'pointer'}}
+          >
+            Retry
+          </button>
         </div>
       </div>
     );
