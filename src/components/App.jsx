@@ -11,7 +11,7 @@ import LoadingScreen from "./LoadingScreen";
 
 function App() {
   const [selectedImage, setSelectedImage] = useState(null);
-  const { imageData, loading } = useFetchImage(selectedImage);
+  const { imageData, loading, error } = useFetchImage(selectedImage);
   const [clickedImagesId, setClickedImagesId] = useState([]);
   const [gameStarted, setGameStarted] = useState(false);
   const [alreadyClicked, setAlreadyClicked] = useState(false);
@@ -127,6 +127,17 @@ function App() {
     return (
       <div className="App-container">
         <LoadingScreen />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="App-container">
+        <div style={{textAlign: 'center', padding: '2rem'}}>
+          <h2>Error loading images</h2>
+          <p>{error}</p>
+        </div>
       </div>
     );
   }
