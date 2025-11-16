@@ -17,7 +17,7 @@ const images = {
 export default function Thumbnails({ handleThumbnailClick, handleMouseMove, handleMouseLeave}) {
   return (
     <main className="thumbnails-main">
-    <h2>Choose a theme to start the game</h2>
+    <h2 className="thumbnail-title" >CHOOSE A THEME TO START THE GAME</h2>
     <ul className="thumbnail-container">
       {Object.keys(images).map((key) => (
         <li key={key} className="thumbnail">

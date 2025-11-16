@@ -21,6 +21,7 @@ li {
   justify-content: center;
   flex: 1;
   text-align: center;
+  background-color: #FFCD00;
 }
 
 .thumbnail-container {
@@ -29,6 +30,13 @@ li {
   justify-content: center;
   gap: 1rem;
   padding: 0;
+}
+
+.thumbnail-title{
+  font-family: "Rubik Bubbles", system-ui;
+  font-weight: 600;
+  font-size: clamp(1rem,2.5rem,3rem);
+  color: red;
 }
 
 .thumbnail-image {
