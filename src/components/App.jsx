@@ -17,6 +17,7 @@ function App() {
   const [alreadyClicked, setAlreadyClicked] = useState(false);
   const [shuffledImages, setShuffledImages] = useState([]);
   const [score, setScore] = useState(0);
+  const [finalScore, setFinalScore] = useState(0);
   const [highScore, setHighScore] = useState(() => {
     const stored = localStorage.getItem("highScore");
     return stored ? parseInt(stored) : 0;
@@ -107,11 +108,11 @@ function App() {
   function handleImageClick(event) {
     const clickedImage = event.target;
     if (clickedImagesId.includes(clickedImage.id)) {
+      setFinalScore(score);
       setAlreadyClicked(true);
       if (score > highScore) {
         setHighScore(score);
       }
-      setScore(0);
       return;
     }
     setClickedImagesId((prev) => [...prev, clickedImage.id]);
@@ -155,10 +156,10 @@ function App() {
       )}
       {(alreadyClicked || score === 30) && (
         <>
-        <ScoreDisplay score={score} highScore={highScore} />
+        <ScoreDisplay score={score === 30 ? score : finalScore} highScore={highScore} />
           <GameStatus
             alreadyClicked={alreadyClicked}
-            score={score}
+            score={score === 30 ? score : finalScore}
             ref={dialogRef}
             restart={restart}
             endGame={endGame}
