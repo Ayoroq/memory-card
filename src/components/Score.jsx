@@ -1,8 +1,8 @@
 export default function ScoreDisplay({score, highScore}){
     return(
         <div className="score-display">
-            <p>Score: {score}</p>
-            <p>High Score: {highScore}</p>
+            <p className="score">Score <span>{score}</span></p>
+            <p className="score">High Score <span>{highScore}</span></p>
         </div>
     )
 }
