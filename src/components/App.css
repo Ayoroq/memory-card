@@ -198,6 +198,11 @@ dialog::backdrop{
   transition: transform 0.3s ease;
 }
 
+.play-again{
+  background-color: rgb(255, 255, 3);
+  color: black;
+}
+
 /* Smaller screens in portrait */
 @media (max-aspect-ratio: 1/1) and (max-width: 480px) {
   .image-item {
