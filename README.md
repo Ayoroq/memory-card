@@ -16,7 +16,19 @@ The Memory Card Game challenges players to click on different images without sel
 - **Error Handling**: Graceful handling of API failures with retry functionality
 - **Loading States**: Smooth loading experience with custom loading screen
 
-## Live Demo
+## Screenshots
+
+![Memory Card Game Landing Page](./screenshots/landing-page.png)
+*Landing page with game introduction*
+
+![Theme Selection](./screenshots/theme-selection.png)
+*Choose from various image categories*
+
+![Gameplay](./screenshots/gameplay.png)
+*Interactive gameplay with score tracking*
+
+
+## 🚀 Live Demo
 
 [Play the Memory Card Game](your-deployment-url-here)
 
@@ -29,7 +41,7 @@ The Memory Card Game challenges players to click on different images without sel
 - **Local Storage** - High score persistence
 - **HTML5 Dialog API** - Modal dialogs
 
-## 📦 Installation
+## Installation
 
 1. **Clone the repository**
    ```bash
@@ -53,7 +65,7 @@ The Memory Card Game challenges players to click on different images without sel
    npm start
    ```
 
-## 🔑 API Setup
+## API Setup
 
 1. Visit [Unsplash Developers](https://unsplash.com/developers)
 2. Create a new application
@@ -76,7 +88,7 @@ The game adapts to different screen sizes:
 - **Tablet**: Optimized spacing and touch interactions
 - **Mobile**: Single column layout for portrait mode
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 src/
@@ -94,14 +106,14 @@ src/
 └── index.js                 # Application entry point
 ```
 
-## 🔧 Available Scripts
+## Available Scripts
 
 - `npm start` - Run development server
 - `npm build` - Build for production
 - `npm test` - Run test suite
 - `npm run eject` - Eject from Create React App
 
-## 🎨 Customization
+## Customization
 
 ### Adding New Themes
 Edit the themes array in `ThemeSelector.jsx`:
@@ -130,7 +142,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [The Odin Project](https://www.theodinproject.com) for the project inspiration
 - React community for excellent documentation and resources
 
-## 📞 Contact
+## Contact
 
 - GitHub: [Ayoroq](https://github.com/Ayoroq)
 - Email: Ayoroq@gmail.com
