@@ -1,13 +1,47 @@
 {
-  "name": "memory-card",
-  "private": true,
-  "version": "0.0.0",
+  "name": "memory-card-game",
+  "private": false,
+  "version": "1.0.0",
   "type": "module",
+  "description": "A React-based memory card game where players test their memory by clicking on images without repeating any selection. Features dynamic themes, score tracking, and responsive design.",
+  "keywords": [
+    "memory-game",
+    "card-game",
+    "react",
+    "javascript",
+    "game",
+    "memory",
+    "interactive",
+    "responsive",
+    "unsplash",
+    "web-game"
+  ],
+  "homepage": "https://github.com/Ayoroq/memory-card#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ayoroq/memory-card.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ayoroq/memory-card/issues"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "lint:fix": "eslint . --fix",
+    "preview": "vite preview",
+    "start": "vite",
+    "deploy": "npm run build && vercel --prod"
+  },
+  "author": {
+    "name": "Roqeeb Olaniyi",
+    "email": "Ayoroq@gmail.com",
+    "url": "https://github.com/Ayoroq"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
   },
   "dependencies": {
     "lottie-react": "^2.4.1",
