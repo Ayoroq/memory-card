@@ -76,27 +76,27 @@ function App() {
     dialogRef.current.close();
   }
 
-  function rotateImage(event){
+  function rotateImage(event) {
     const image = event.target;
     const rect = image.getBoundingClientRect();
     // Calculate the position of the mouse relative to the card's top-left corner
-    const x = event.clientX - rect.left; 
-    const y = event.clientY - rect.top; 
-    
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+
     // Find the center of the card
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
-    
+
     // Calculate the rotation angles based on mouse position
-    const rotateX = ((y - centerY) / centerY) * 20; 
+    const rotateX = ((y - centerY) / centerY) * 20;
     const rotateY = ((centerX - x) / centerX) * 20;
 
     image.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
   }
 
-  function cancelRotation(event){
+  function cancelRotation(event) {
     const image = event.target;
-    image.style.transform = 'rotate(0deg)';
+    image.style.transform = "rotate(0deg)";
   }
 
   function handleThumbnailClick(event) {
@@ -129,11 +129,20 @@ function App() {
 
   return (
     <div className="App-container">
-      {!gameStarted && <LandingPage setGameStarted={setGameStarted} onClick={() => setGameStarted(true)} />}
-      {!selectedImage && gameStarted && (
-        <Thumbnails handleThumbnailClick={handleThumbnailClick} handleMouseMove={rotateImage} handleMouseLeave={cancelRotation}/>
+      {!gameStarted && (
+        <LandingPage
+          setGameStarted={setGameStarted}
+          onClick={() => setGameStarted(true)}
+        />
       )}
-      {selectedImage && (
+      {!selectedImage && gameStarted && (
+        <Thumbnails
+          handleThumbnailClick={handleThumbnailClick}
+          handleMouseMove={rotateImage}
+          handleMouseLeave={cancelRotation}
+        />
+      )}
+      {selectedImage && !alreadyClicked && (
         <main className="gameplay">
           <ScoreDisplay score={score} highScore={highScore} />
           <DisplayImage
@@ -145,13 +154,16 @@ function App() {
         </main>
       )}
       {(alreadyClicked || score === 30) && (
-        <GameStatus
-          alreadyClicked={alreadyClicked}
-          score={score}
-          ref={dialogRef}
-          restart={restart}
-          endGame={endGame}
-        />
+        <>
+        <ScoreDisplay score={score} highScore={highScore} />
+          <GameStatus
+            alreadyClicked={alreadyClicked}
+            score={score}
+            ref={dialogRef}
+            restart={restart}
+            endGame={endGame}
+          />
+        </>
       )}
     </div>
   );
