@@ -126,7 +126,8 @@ li {
   transition: transform 0.3s ease;
 }
 
-.get-started:hover,.dialog-button:hover {
+.get-started:hover,
+.dialog-button:hover {
   transform: translateY(-3px);
 }
 
@@ -164,12 +165,12 @@ li {
   position: fixed;
   top: 50%;
   left: 50%;
+  font-size: clamp(1.5rem, 1.8rem, 2.5rem);
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: "Faster One", system-ui;
-  font-size: clamp(3rem, 5rem, 8rem);
   color: white;
   border: none;
   border-radius: 10px;
@@ -177,7 +178,7 @@ li {
   padding: 2rem;
 }
 
-dialog::backdrop{
+dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.544);
 }
 
@@ -187,7 +188,8 @@ dialog::backdrop{
 }
 
 .dialog-button {
-  font-size: clamp(0.75rem, 1.25rem, 2rem);
+  font-size: 1rem;
+  max-width: fit-content;
   padding: 1rem 2rem;
   background-color: red;
   border-radius: 10px;
@@ -198,7 +200,7 @@ dialog::backdrop{
   transition: transform 0.3s ease;
 }
 
-.play-again{
+.play-again {
   background-color: rgb(255, 255, 3);
   color: black;
 }
@@ -212,6 +214,9 @@ dialog::backdrop{
   .image {
     width: 100%;
     max-width: 150px;
+  }
+  .dialog-button{
+    padding: 0.5rem 1rem;
   }
 }
 
