@@ -56,6 +56,9 @@ function App() {
 
   useEffect(() => {
     if ((alreadyClicked || score === 30) && dialogRef.current) {
+      if (score === 30) {
+        setFinalScore(30);
+      }
       dialogRef.current.showModal();
     }
   }, [alreadyClicked, score]);
