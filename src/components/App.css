@@ -96,6 +96,7 @@ li {
   gap: 2rem;
   align-items: center;
   justify-content: center;
+  background-color: lightgreen;
 }
 
 /* Landing Page */
