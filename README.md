@@ -18,13 +18,13 @@ The Memory Card Game challenges players to click on different images without sel
 
 ## Screenshots
 
-![Memory Card Game Landing Page](./screenshots/landing-page.png)
+![Memory Card Game Landing Page](./src/screenshots/home.jpeg)
 *Landing page with game introduction*
 
-![Theme Selection](./screenshots/theme-selection.png)
+![Theme Selection](./src/screenshots/theme-selection.jpeg)
 *Choose from various image categories*
 
-![Gameplay](./screenshots/gameplay.png)
+![Gameplay](./src/screenshots/gameplay.jpeg)
 *Interactive gameplay with score tracking*
 
 
