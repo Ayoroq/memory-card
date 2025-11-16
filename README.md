@@ -28,9 +28,9 @@ The Memory Card Game challenges players to click on different images without sel
 *Interactive gameplay with score tracking*
 
 
-## 🚀 Live Demo
+## Live Demo
 
-[Play the Memory Card Game](your-deployment-url-here)
+[Play the Memory Card Game](https://memory-eight-delta.vercel.app/)
 
 ## Technologies Used
 
